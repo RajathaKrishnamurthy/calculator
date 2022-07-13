@@ -6,6 +6,12 @@ let backspaceClass = document.getElementsByClassName("backspace");
 let number1 = "";
 let number2 = "";
 let operator;
+
+// data-attribute - Raj
+// stop relying on the DOM element - Raj
+// Stops HTML injections - Raj
+// internationalization - Raj
+// dynamic rendering of the HTML with numbers and opertors - Raj
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
     if (operator === undefined) {
@@ -18,10 +24,13 @@ numbers.forEach((number) => {
   });
 });
 backspaceClass[0].addEventListener("click", () => {
+  // DOM actions are costly - Raj
+  // number display with avariable - Raj
   if (numDisplay[0].innerHTML.length === 1) {
     numDisplay[0].innerHTML = 0;
     resetVariables();
   } else {
+    //dom cacheing
     numDisplay[0].innerHTML = numDisplay[0].innerHTML.substring(
       0,
       numDisplay[0].innerHTML.length - 1
@@ -65,7 +74,11 @@ let performOperation = (type) => {
   }
 };
 
+// not a pure function - Raj
+// parameterize the function - Raj
 let performCalculation = () => {
+  // !!variable instead of ternary operation - Raj
+  // any number multiplied by 1 gives the number - Raj
   let num1 = number1.length > 0 ? parseInt(number1) : 0;
   let num2 = number2.length > 0 ? parseInt(number2) : 0;
   if (operator === "+") {
