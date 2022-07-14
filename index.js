@@ -12,6 +12,11 @@ let operator;
 // Stops HTML injections - Raj
 // internationalization - Raj
 // dynamic rendering of the HTML with numbers and opertors - Raj
+
+// remove event listerner if there are multiple pages present - Akhilesh
+
+// BUG: backspace just updates the DOM and not the variable
+
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
     if (operator === undefined) {
@@ -102,3 +107,9 @@ let resetVariables = () => {
   operator = undefined;
   // reRender("0");
 };
+
+// Akhilesh
+// 1. a function should handle all three pathways 1. number 2. operators 3. perform arthmetic operations
+// 2. initial value should be same if the type is same. number1, number2, operator should be "".
+// so have a variable defined as initialvalue which should be assigned an empty string
+//80 + 55 backspace, it retains the same value
